@@ -1,0 +1,174 @@
+import random as rand
+
+class Shape:
+    def __init__(self):
+        sides = 0
+        color = ""
+        vertex = 0
+        name = ''
+    def set_name(self, name):
+        self.name = name
+    def get_name(self):
+        return self.name
+    
+    def set_sides(self, sides):
+        self.sides = sides
+    def get_sides(self):
+        return self.sides
+    def set_color(self,color):
+        self.color = color
+    def get_color(self):
+        return self.color
+
+square = Shape()
+square.set_sides(4)
+square.get_sides()
+square.set_color('orange')
+square.get_color()
+
+triangle = Shape()
+triangle.set_sides(3)
+triangle.get_sides()
+triangle.set_color('red')
+triangle.get_color()
+triangle.set_name('triangle')
+triangle.get_name()
+
+pentagon = Shape()
+pentagon.set_sides(5)
+pentagon.get_sides()
+pentagon.set_color('yellow')
+pentagon.get_color()
+
+hexagon = Shape()
+hexagon.set_sides(6)
+hexagon.get_sides()
+hexagon.set_color('green')
+hexagon.get_color()
+
+shapes={
+    'triangle':triangle,
+    'square':square,
+    'pentagon':pentagon,
+    'hexagon':hexagon
+}
+
+shape_sides = [3,4,5,6]
+shape_color = ['red', 'orange', 'yellow', 'green']
+shape_qualities = [shape_sides, shape_color]
+
+def create_shape(shape):
+    shape = Shape()
+    shape.set_sides = 0
+    shape.set_color = ''
+    shape.set_name = ''
+
+def color_question(x):
+    print('Is the object ' + shape_color[x] + '?')
+
+def sides_question(x):
+    
+    #x = rand.randint(0,3)
+    print("Does the object have", shape_sides[x] ,"sides?")
+    
+def question_type(x):
+    return shape_qualities[x]
+    
+def Learn_shape():
+    shapes_copy = shapes
+    trash_shapes=[]
+    while len(shapes_copy) != 0:
+        x = rand.randint(0,1)
+        Type = question_type(x)
+        
+        if Type == shape_sides:
+            x = rand.randint(0,3)
+        
+            while x in trash_shapes:
+                x = rand.randint(0,3)
+            
+            sides_question(x)
+            Answer = input("Answer: ")
+        
+            while Answer != 'yes' and Answer != 'no':
+                Answer=input('Enter yes or no: ')
+            
+            if (Answer == "yes"):
+                for key,value in shapes_copy.items():
+                    if value.sides==shape_sides[x]:
+                        print('Is your shape a ' + key + '?')    
+                break
+        
+            if Answer == 'no':
+                trash_shapes.append(x)
+                for key,value in shapes_copy.items():
+                    if value.sides==shape_sides[x]:
+                        shapes_copy.pop(key)
+                        break
+                # x = rand.randint(0,1)
+                # Type = question_type(x)
+                
+        if Type == shape_color:
+            x = rand.randint(0,3)
+        
+            while x in trash_shapes:
+                x = rand.randint(0,3)
+            
+            color_question(x)
+            Answer = input("Answer: ")
+        
+            while Answer != 'yes' and Answer != 'no':
+                Answer=input('Enter yes or no: ')
+            
+            if (Answer == "yes"):
+                for key,value in shapes_copy.items():
+                    if value.color==shape_color[x]:
+                        print('Is your shape a ' + key + '?')  
+                    break
+                response = input('Enter yes or no: ')
+                if response == 'yes':
+                    print('I win!')
+                if response == 'no':
+                    print("Wow! I don't know that shape! Can you tell me about it?")
+                    print('What is the name of your shape?')
+                    new_shape = input('Enter name: ')
+                    print('How many sides does your shape have?')
+                    new_sides = int(input('Enter sides: '))
+                    print('What is the color of your shape? ')
+                    new_color = input('Enter a color: ')
+                    x = new_shape
+                    x = Shape()
+                    x.set_sides = new_sides
+                    x.set_color = new_color
+                    x.set_name = new_shape
+                    shapes.update({new_shape:x})
+                    print(shapes)
+                        
+        
+            if Answer == 'no':
+                trash_shapes.append(x)
+                for key,value in shapes_copy.items():
+                    if value.color==shape_color[x]:
+                        shapes_copy.pop(key)
+                        break
+
+    if len(shapes_copy) == 0:
+        print("Wow! I don't know that shape! Can you tell me about it?")
+        print('What is the name of your shape?')
+        new_shape = input('Enter name: ')
+        print('How many sides does your shape have?')
+        new_sides = int(input('Enter sides: '))
+        print('What is the color of your shape? ')
+        new_color = input('Enter a color: ')
+        x = new_shape
+        x = Shape()
+        x.set_sides = new_sides
+        x.set_color = new_color
+        x.set_name = new_shape
+        shapes.update({new_shape:x})
+        print(shapes)
+    
+        
+    
+Learn_shape()
+#print(x.sides)
