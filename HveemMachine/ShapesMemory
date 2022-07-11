@@ -1,0 +1,353 @@
+import math 
+
+
+class Shape():
+    great_grandparent = str()
+    grandparent = str()
+    parent = str()
+    name = str()
+    sides = int()
+    pair_parallel_sides = int()
+    vertex = int()
+    angles = int()
+    acute_angles = int()
+    right_angles = int()
+    obtuse_angles = int()
+    lines_symmetry = int()
+    congruent_sides = bool()
+    polygon = bool()
+    regular_polygon = bool()
+    parallelogram = bool()
+        
+        
+class Circle(Shape): 
+    parent = 'shape'
+    name = 'circle'
+    sides = 0
+    pair_parallel_sides = 0
+    vertex = 0
+    angles = 0
+    acute_angles = 0
+    right_angles = 0
+    obtuse_angles = 0
+    lines_symmetry = math.inf
+    congruent_sides = False
+    polygon = False
+    regular_polygon = False
+    parallelogram = False
+    
+class Oval(Shape):
+    parent = 'shape'
+    name = 'oval'
+    sides = 0
+    pair_parallel_sides = 0
+    vertex = 0
+    angles = 0
+    acute_angles = 0
+    right_angles = 0
+    obtuse_angles = 0
+    lines_symmetry = 2
+    congruent_sides = False
+    polygon = False
+    regular_polygon = False
+    parallelogram = False
+    
+class Triangle(Shape):
+    parent = 'shape'
+    name = 'triangle'
+    sides = 3
+    pair_parallel_sides = 0
+    vertex = 3
+    angles = 3
+    polygon = True
+    parallelogram = False
+   
+
+class Acute_Triangle(Triangle):
+    grandparent = 'shape'
+    parent = 'triangle'
+    name = 'acute triangle'
+    acute_angles = 3
+    right_angles = 0
+    obtuse_angles = 0
+   
+    
+class Equilateral_Triangle(Acute_Triangle):
+    great_grandparent = 'shape'
+    grandparent = 'triangle'
+    parent = 'acute triangle'
+    name = 'equilateral triangle'
+    lines_symmetry = 3
+    congruent_sides = True
+    regular_polygon = True
+
+class Acute_Isosceles_Triangle(Acute_Triangle):
+    great_grandparent = 'shape'
+    grandparent = 'triangle'
+    parent = 'acute triangle'
+    name = 'acute isosceles triangle'
+    lines_symmetry = 1
+    congruent_sides = True
+    regular_polygon = False
+    
+class Acute_Scalene_Triangle(Acute_Triangle):
+    great_grandparent = 'shape'
+    grandparent = 'triangle'
+    parent = 'acute triangle'
+    name = 'acute scalene triangle'
+    lines_symmetry = 0
+    congruent_sides = False
+    regular_polygon = False
+    
+class Right_Triangle(Triangle):
+    grandparent = 'shape'
+    parent = 'triangle'
+    name = 'right triangle'
+    acute_angles = 2
+    right_angles = 1
+    obtuse_angles = 0
+
+class Right_Isosceles_Triangle(Right_Triangle):
+    great_grandparent = 'shape'
+    grandparent = 'triangle'
+    parent = 'right triangle'
+    name = 'right isosceles triangle'
+    lines_symmetry = 1
+    congruent_sides = True
+    regular_polygon = False
+    
+class Right_Scalene_Triangle(Right_Triangle):
+    great_grandparent = 'shape'
+    grandparent = 'triangle'
+    parent = 'right triangle'
+    name = 'right scalene triangle'
+    lines_symmetry = 0
+    congruent_sides = False
+    regular_polygon = False
+
+class Obtuse_Triangle(Triangle):
+    grandparent = 'shape'
+    parent = 'triangle'
+    name = 'obtuse triangle'
+    acute_angles = 2
+    right_angles = 0
+    obtuse_angles = 1
+
+class Obtuse_Isosceles_Triangle(Obtuse_Triangle):
+    great_grandparent = 'shape'
+    grandparent = 'triangle'
+    parent = 'obtuse triangle'
+    name = 'obtuse isosceles triangle'
+    lines_symmetry = 1
+    congruent_sides = True
+    regular_polygon = False
+    
+class Obtuse_Scalene_Triangle(Obtuse_Triangle):
+    great_grandparent = 'shape'
+    grandparent = 'triangle'
+    parent = 'obtuse triangle'
+    name = 'obtuse scalene triangle'
+    lines_symmetry = 0
+    congruent_sides = False
+    regular_polygon = False
+    
+class Quadrilateral(Shape):
+    parent = 'shape'
+    name = 'quadrilateral'
+    sides = 4
+    vertex = 4
+    angles = 4
+    polygon = True
+
+class Square(Quadrilateral):
+    grandparent = 'shape'
+    parent = 'quadrilateral'
+    name = 'square'
+    pair_parallel_sides = 2
+    acute_angles = 0
+    right_angles = 4
+    obtuse_angles = 0
+    lines_symmetry = 4
+    congruent_sides = True
+    regular_polygon = True
+    parallelogram = True
+    
+class Rectangle(Quadrilateral):
+    grandparent = 'shape'
+    parent = 'quadrilateral'
+    name = 'rectangle'
+    pair_parallel_sides = 2
+    acute_angles = 0
+    right_angles = 4
+    obtuse_angles = 0
+    lines_symmetry = 4
+    congruent_sides = True
+    regular_polygon = True
+    parallelogram = True
+    
+class Trapezoid(Quadrilateral):
+    grandparent = 'shape'
+    parent = 'quadrilateral'
+    name = 'trapezoid'
+    pair_parallel_sides = 1
+    acute_angles = 2
+    right_angles = 0
+    obtuse_angles = 2
+    lines_symmetry = 1
+    congruent_sides = True
+    regular_polygon = False
+    parallelogram = False
+    
+class Right_Trapezoid(Trapezoid):
+    name = 'right trapezoid'
+    acute_angles = 1
+    right_angles = 2
+    obtuse_angles = 1
+    lines_symmetry = 0
+    congruent_sides = False
+
+class Rhombus(Quadrilateral):
+    grandparent = 'shape'
+    parent = 'quadrilateral'
+    name = 'rhombus'
+    pair_parallel_sides = 2
+    acute_angles = 2
+    right_angles = 0
+    obtuse_angles = 2
+    lines_symmetry = 4
+    congruent_sides = True
+    regular_polygon = False
+    parallelogram = True
+    
+class Parallelogram(Quadrilateral):
+    grandparent = 'shape'
+    parent = 'quadrilateral'
+    name = 'parallelogram'
+    pair_parallel_sides = 2
+    acute_angles = 2
+    right_angles = 0
+    obtuse_angles = 2
+    lines_symmetry = 2
+    congruent_sides = True
+    regular_polygon = False
+    parallelogram = True
+    
+class Regular_Pentagon(Shape):
+    parent = 'shape'
+    name = 'pentagon'
+    sides = 5
+    pair_parallel_sides = 0
+    vertex = 5
+    angles = 5
+    acute_angles = 0
+    right_angles = 0
+    obtuse_angles = 5
+    lines_symmetry = 5
+    congruent_sides = True
+    polygon = True
+    regular_polygon = True
+    parallelogram = False
+
+class Regular_Hexagon(Shape):
+    parent = 'shape'
+    name = 'hexagon'
+    sides = 6
+    pair_parallel_sides = 3
+    vertex = 6
+    angles = 6
+    acute_angles = 0
+    right_angles = 0
+    obtuse_angles = 6
+    lines_symmetry = 12
+    congruent_sides = True
+    polygon = True
+    regular_polygon = True
+    parallelogram = False
+
+class Regular_Septagon(Shape):
+    parent = 'shape'
+    name = 'septagon'
+    sides = 7
+    pair_parallel_sides = 0
+    vertex = 7
+    angles = 7
+    acute_angles = 0
+    right_angles = 0
+    obtuse_angles = 7
+    lines_symmetry = 7
+    congruent_sides = True
+    polygon = True
+    regular_polygon = True
+    parallelogram = False
+    
+class Regular_Octagon(Shape):
+    parent = 'shape'
+    name = 'octagon'
+    sides = 8
+    pair_parallel_sides = 4
+    vertex = 8
+    angles = 8
+    acute_angles = 0
+    right_angles = 0
+    obtuse_angles = 8
+    lines_symmetry = 16
+    congruent_sides = True
+    polygon = True
+    regular_polygon = True
+    parallelogram = False
+    
+circle = Circle()
+oval = Oval()
+triangle = Triangle()
+acute_triangle = Acute_Triangle()
+equilateral_triangle = Equilateral_Triangle()
+acute_isosceles_triangle = Acute_Isosceles_Triangle()
+acute_scalene_triangle = Acute_Scalene_Triangle()
+right_triangle = Right_Triangle()
+right_isosceles_triangle = Right_Isosceles_Triangle()
+right_scalene_triangle = Right_Scalene_Triangle()
+obtuse_triangle = Obtuse_Triangle()
+obtuse_isosceles_triangle = Obtuse_Isosceles_Triangle()
+obtuse_scalene_triangle = Obtuse_Scalene_Triangle()
+quadrilateral = Quadrilateral()
+square = Square()
+rectangle = Rectangle()
+trapezoid = Trapezoid()
+right_trapezoid = Right_Trapezoid()
+rhombus = Rhombus()
+parallelogram = Parallelogram()
+pentagon = Regular_Pentagon()
+hexagon = Regular_Hexagon()
+septagon = Regular_Septagon()
+octagon = Regular_Octagon()
+
+shapes = {"circle": circle, 
+          "oval": oval, 
+          "triangle": triangle, 
+          "acute triangle": acute_triangle,
+          "equilateral triangle": equilateral_triangle,
+          "acute isosceles triangle": acute_isosceles_triangle,
+          "acute scalene triangle": acute_scalene_triangle,
+          "right triangle": right_triangle,
+          "right isosceles triangle": right_isosceles_triangle,
+          "right scalene triangle": right_scalene_triangle,
+          "obtuse triangle": obtuse_triangle,
+          "obtuse isosceles triangle": obtuse_isosceles_triangle,
+          "obtuse scale triangle": obtuse_scalene_triangle,
+          "quadrilateral": quadrilateral,
+          "square": square,
+          "rectangle": rectangle,
+          "trapezoid":trapezoid,
+          "right trapezoid": right_trapezoid,
+          "rhombus": rhombus,
+          "parallelogram": parallelogram,
+          "pentagon": pentagon,
+          "hexagon": hexagon,
+          "septagon": septagon,
+          "octagon": octagon}
+
+
+question = "is it an octagon?"
+question = question.split(" ").pop(len(question-1))
+print(question)
+print(shapes["octagon"].lines_symmetry)
