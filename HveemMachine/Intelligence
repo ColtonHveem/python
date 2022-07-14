@@ -1,0 +1,84 @@
+shape_great_grandparent = Counter()
+shape_grandparent = Counter()
+shape_parent = Counter()
+shape_name = Counter()
+shape_sides = Counter()
+shape_parallel_sides = Counter()
+shape_vertex = Counter()
+shape_angles = Counter()
+shape_acute_angles = Counter()
+shape_right_angles = Counter()
+shape_obtuse_angles = Counter()
+shape_lines_symmetry = Counter()
+shape_congruent_sides = Counter()
+shape_polygon = Counter()
+shape_regular_polygon = Counter()
+shape_parallelogram = Counter()
+
+shape_qualities = [shape_great_grandparent, shape_grandparent, shape_parent, shape_name, shape_sides, shape_parallel_sides, shape_vertex,
+                   shape_angles, shape_acute_angles, shape_right_angles, shape_obtuse_angles, shape_lines_symmetry, shape_congruent_sides,
+                   shape_polygon, shape_regular_polygon, shape_parallelogram]
+
+for key,value in shapes.items():
+    shape_great_grandparent = shape_great_grandparent + Counter({value.great_grandparent})
+    shape_grandparent = shape_grandparent + Counter({value.grandparent})
+    shape_parent = shape_parent + Counter({value.parent})
+    shape_name = shape_name + Counter({value.name})
+    shape_sides = shape_sides + Counter({value.sides})
+    shape_parallel_sides = shape_parallel_sides + Counter({value.pair_parallel_sides})
+    shape_vertex = shape_vertex + Counter({value.vertex})
+    shape_angles = shape_angles + Counter({value.angles})
+    shape_acute_angles = shape_acute_angles + Counter({value.acute_angles})
+    shape_obtuse_angles = shape_obtuse_angles + Counter({value.obtuse_angles})
+    shape_lines_symmetry = shape_lines_symmetry + Counter({value.lines_symmetry})
+    shape_congruent_sides = shape_congruent_sides + Counter({value.congruent_sides})
+    shape_polygon = shape_polygon + Counter({value.polygon})
+    shape_regular_polygon = shape_regular_polygon + Counter({value.regular_polygon})
+    shape_parallelogram = shape_parallelogram + Counter({value.parallelogram})
+    
+print("Great Grandparents: ", shape_great_grandparent)
+print("Grandparents: ", shape_grandparent)
+print("Parents: ", shape_parent)
+print("Name: ", shape_name)
+print("Sides: ", shape_sides)
+print("Parallel Side Pairs: ", shape_parallel_sides)
+print("Vertex: ", shape_vertex)
+print("Angles: ", shape_angles)
+print("Acute Angles", shape_acute_angles)
+print("Right Angles: ", shape_right_angles)
+print("Obtuse Angles: ", shape_obtuse_angles)
+print("Lines of Symmetry: ", shape_lines_symmetry)
+print("Congruent Sides: ", shape_congruent_sides)
+print("Polygons: ", shape_polygon)
+print("Regular Polygons", shape_regular_polygon)
+print("Parallelograms: ", shape_parallelogram)
+print("Congruent Sides: ", shape_congruent_sides)
+
+print()
+x = len(shapes) / 2
+print(x)
+
+def sides_question():
+    for total in shape_sides:
+        if shape_sides[total] == x:
+            print('Does the object have ', shape_sides[total], 'side(s)?')
+            break
+        elif shape_sides[total] == (x - 1) or shape_sides[total] == (x + 1):
+            print('Does the object have ', shape_sides[total], 'side(s)?')
+            break
+        elif shape_sides[total] == (x - 2) or shape_sides[total] == (x + 2):
+            print('Does the object have ', shape_sides[total], 'side(s)?')
+            break
+        elif shape_sides[total] == (x - 3) or shape_sides[total] == (x + 3):
+            print('Does the object have ', shape_sides[total], 'side(s)?')
+            break
+#sides_question()
+
+keys = shape_sides.keys()
+print(keys)
+#def sides():
+ #   for sides, total in shape_sides(1):
+  #      print('%s: %d' % (sides, total))
+
+#sides()
+
