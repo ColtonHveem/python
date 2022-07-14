@@ -15,6 +15,10 @@ shape_polygon = Counter()
 shape_regular_polygon = Counter()
 shape_parallelogram = Counter()
 
+shape_qualities = [shape_great_grandparent, shape_grandparent, shape_parent, shape_name, shape_sides, shape_parallel_sides, shape_vertex,
+                   shape_angles, shape_acute_angles, shape_right_angles, shape_obtuse_angles, shape_lines_symmetry, shape_congruent_sides,
+                   shape_polygon, shape_regular_polygon, shape_parallelogram]
+
 for key,value in shapes.items():
     shape_great_grandparent = shape_great_grandparent + Counter({value.great_grandparent})
     shape_grandparent = shape_grandparent + Counter({value.grandparent})
