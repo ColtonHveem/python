@@ -1,0 +1,195 @@
+shapesplit = len(shapes) / 2
+print(shapesplit)
+
+difference = 0
+
+def lineage_question(difference):
+    found = 0
+    for ancestor, total in shape_great_grandparent.items():
+        if abs(total - shapesplit) == difference:
+            print('Is the object a', ancestor, '?')
+            found = found + 1
+            break
+    for ancestor, total in shape_grandparent.items():
+        if abs(total - shapesplit) == difference:
+            print('Is the object a', ancestor, '?')
+            found = found + 1
+            break
+    for ancestor, total in shape_parent.items():
+        if abs(total - shapesplit) == difference:
+            print('Is the object a', ancestor, '?')
+            found = found + 1
+            break
+    if found == 0:
+        difference = difference + 1
+        lineage_question(difference)
+    if found == 1:
+        return
+
+def sides_question(difference):
+    found = 0
+    for sides, total in shape_sides.items():
+        if abs(total - shapesplit) == difference:
+            print('Does the object have', sides, 'side(s)?')
+            found = found + 1
+            break
+    if found == 0:
+        difference = difference + 1
+        sides_question(difference)
+    if found == 1:
+        return
+
+def parallel_sides_question(difference):
+    found = 0
+    for sidepairs, total in shape_parallel_sides.items():
+        if abs(total - shapesplit) == difference:
+            print('Does the object have', sidepairs, 'pair(s) of parallel side(s)?')
+            found = found + 1
+            break
+    if found == 0:
+        difference = difference + 1
+        parallel_sides_question(difference)
+    if found == 1:
+        return
+
+def vertex_question(difference):
+    found = 0
+    for vertex, total in shape_vertex.items():
+        if abs(total - shapesplit) == difference:
+            print('Does the object have', vertex, 'vertices?')
+            found = found + 1
+            break
+    if found == 0:
+        difference = difference + 1
+        vertex_question(difference)
+    if found == 1:
+        return
+
+def angles_question(difference):
+    found = 0
+    for angles, total in shape_angles.items():
+        if abs(total - shapesplit) == difference:
+            print('Does the object have', angles, 'angles?')
+            found = found + 1
+            break
+    if found == 0:
+        difference = difference + 1
+        angles_question(difference)
+    if found == 1:
+        return
+    
+def acute_angles_question(difference):
+    found = 0
+    for acute, total in shape_acute_angles.items():
+        if abs(total - shapesplit) == difference:
+            print('Does the object have', acute, 'acute angle(s)?')
+            found = found + 1
+            break
+    if found == 0:
+        difference = difference + 1
+        acute_angles_question(difference)
+    if found == 1:
+        return
+    
+def right_angles_question(difference):
+    found = 0
+    for right, total in shape_right_angles.items():
+        if abs(total - shapesplit) == difference:
+            print('Does the object have', right, 'right angle(s)?')
+            found = found + 1
+            break
+    if found == 0:
+        difference = difference + 1
+        right_angles_question(difference)
+    if found == 1:
+        return
+
+def obtuse_angles_question(difference):
+    found = 0
+    for obtuse, total in shape_obtuse_angles.items():
+        if abs(total - shapesplit) == difference:
+            print('Does the object have', obtuse, 'obtuse angle(s)?')
+            found = found + 1
+            break
+    if found == 0:
+        difference = difference + 1
+        obtuse_angles_question(difference)
+    if found == 1:
+        return
+
+def symmetry_question(difference):
+    found = 0
+    for symmetry, total in shape_lines_symmetry.items():
+        if abs(total - shapesplit) == difference:
+            print('Does the object have', symmetry, 'line(s) of symmetry?')
+            found = found + 1
+            break
+    if found == 0:
+        difference = difference + 1
+        symmetry_question(difference)
+    if found == 1:
+        return    
+    
+def congruent_sides_question(difference):
+    found = 0
+    for congruent, total in shape_congruent_sides.items():
+        if abs(total - shapesplit) == difference:
+            print('Does the object have at least one pair of congruent sides?')
+            found = found + 1
+            break
+    if found == 0:
+        difference = difference + 1
+        congruent_sides_question(difference)
+    if found == 1:
+        return
+
+def polygon_question(difference):
+    found = 0
+    for polygon, total in shape_polygon.items():
+        if abs(total - shapesplit) == difference:
+            print('Is the object a polygon?')
+            found = found + 1
+            break
+    if found == 0:
+        difference = difference + 1
+        polygon_question(difference)
+    if found == 1:
+        return
+    
+def regular_polygon_question(difference):
+    found = 0
+    for regular, total in shape_regular_polygon.items():
+        if abs(total - shapesplit) == difference:
+            print('Is the object a regular polygon?')
+            found = found + 1
+            break
+    if found == 0:
+        difference = difference + 1
+        regular_polygon_question(difference)
+    if found == 1:
+        return
+
+def parallelogram_question(difference):
+    found = 0
+    for regular, total in shape_parallelogram.items():
+        if abs(total - shapesplit) == difference:
+            print('Is the object a parallelogram?')
+            found = found + 1
+            break
+    if found == 0:
+        difference = difference + 1
+        parallelogram_question(difference)
+    if found == 1:
+        return
+
+#lineage_question(difference)           
+#sides_question(difference)
+#parallel_sides_question(difference)
+#angles_question(difference)
+#acute_angles_question(difference)
+#right_angles_question(difference)
+#obtuse_angles_question(difference)
+#symmetry_question(difference)
+#congruent_sides_question(difference)
+#polygon_question(difference)
+#parallelogram_question(difference)
